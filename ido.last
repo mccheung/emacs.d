@@ -1,0 +1,31 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/cheungmc/org-notes/" . "joris/")
+ ("/Users/cheungmc/" . "org-notes/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/cheungmc/org-notes/joris/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "Joris.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/cheungmc/org-notes/joris/" (22441 63016 0 0) "Joris.org" "../" "./")
+
+ ("/Users/cheungmc/org-notes/" (22441 62658 0 0) "todo.org" "TechURL.org" "README.md" "pantuo/" "org/" "joris/" "data/" ".git/" "../" "./")
+
+ ("/Users/cheungmc/" (22441 63460 0 0) "电脑配置.txt" "清除垃圾.bat1" "户口本复印件.pdf" "工作簿1.xlsx" "公积金联名卡申请表.doc" "修改记录.txt" "zorpia/" "zetacoin0899r2win.zip" "xxb" "xx.py" "xx.pl" "xtaoAuth.html" "x.txt" "x.pl" "x.js" "x" "wingame.pl" "wifi_700.txt" "WebstormProjects/" "vps/" "vimrc" "vim" "Users/" "upload/" "update.pl" "tt.pl" "torch/" "todo.org" "todo.html" "tmp/" "test.pl" "Test.iconset/" "Test.icns" "telnet.pl" "task_plan.org" "t2.pl" "t1.pl" "t.t" "t.pl" "swift/" "srca.cer" "spacemacs.d/" "Sites/" "sitemap-person-00001.xml" "sina_reg/" "shell_script.sh/" "run001/" "run.bat" "run - 副本.bat" "ruby-vimrc/" "ruby-china.txt" "report" "quicklisp.lisp" "quicklisp/" "qmqj/" "Public/" "pts.zip" "pts.dat" "Pictures/" "pgadmin.log" "out.txt" "org1" "org-notes/" "org" "opt/" "ok_lol.txt" "ok" "ni" "navytest_full.sql" "navytest.sql" "mysql_tools/" "Music/" "mping.scpt" "Movies/" "minerd" "mbox" "main.cf" "Mail/" "LOL大型工作室.txt" "logs" "Library/" "lekan/" "kuang_ji.sql" "Kitematic/" "K+mIVRrn.exe.part" "Joris/" "J7TSdwmY.zip.part" "irclogs/" "install.zip" "install/" "iii" "ii" "html.html" "gray_ajax_loader.gif" "gray ajax-loader.gif" "git/" "game_name.txt" "fuck.txt" "fred" "file.txt" "FIFA_ACCOUNTS" "Fiddler2/" "emacs.d/" "Elastics sample card.xls" "eclipse/" "Downloads/" "download-0daa9bf9-ac71-4148-bf5f-bc4cc8a40bfc.csv" "download" "Documents/" "DNF_ACCOUNT.xlsx" "dll/" "Desktop/" "data.xlsx" "Creative Cloud Files/" "colorfastness form.doc" "coin-exchange.rp" "codes/" "chepiao/" "ccc.pl" "bgniaoV1.2.1.0.rar" "bgniaoV1.2.1.0/" "bbb" "ba_no_done.txt" "ba.txt" "b.pl" "b" "assets-and-ajax.html" "appMobiToolkit.props" "Applications (Parallels)/" "Applications/" "all_articles.txt" "acDatabase.mdb" "abc.rb" "abc.pl" "abc.js" "abc" "aa.js" "a1.pl" "a.txt" "a.pl" "a" "_rvm/" "98 BOOT.exe" "962905591eea_bundle.js" "6.txt" "3980852.html" "38.txt" "3759961821.apk" "2013-05-12_21-39-01_974.jpg" "2012-10-17_20-08-12_984.jpg" "2012-10-17_20-08-03_154.jpg" "2012-10-17_18-42-17_88.jpg" "1111.rar" "1.mp4" ".zshrc.pre-oh-my-zsh" ".zshrc" ".zsh_history" ".zsh-update" ".zsh/" ".zs" ".zlogin" ".zenmap-etc/" ".zenmap/" ".ZendStudio/" ".zcompdump-MC_MBP-5.0.8" ".zcompdump-MC_MBP-5.0.5" ".zcompdump-MC_MBP-5.0.2" ".zcompdump-MC_MBP-4.3.11" ".zcompdump-bound-5.0.8" ".zcompdump" ".yeoman/" ".xslate_cache/" ".Xauthority" ".x.js.swp" ".wireshark-etc/" ".wireshark/" ".winswitch/" ".wine/" ".weiphone/" ".wapi/" ".w3m/" ".vnc/" ".vms" ".vimrc_ok" ".vimrc_20151107" ".vimrc" ".vimperator/" ".viminfz.tmp" ".viminfo.tmp" ".viminfo" ".vim_mru_files" ".vim_bk" ".vim-rc/" ".vim-fuf-data/" ".vim/" ".vagrant.d/" ".v8flags.4.6.85.28.cheungmc.json" ".Trash/" ".tor/" ".tooling/" ".todo/" ".tmux.conf_bm" ".tmux.conf" ".tmux-powerlinerc.default" ".tmux/" ".titanium/" ".ti_piracy" ".tenpaycert/" ".swp" ".swo" ".swn" ".swm" ".swl" ".subversion/" ".sublime_erb/" ".stack/" ".ssh/" ".sqlmap/" ".sqlite_history" ".slime/" ".siegerc" ".ShadowsocksX/" ".sh_history" ".serverauth.77197" ".seospyglass/" ".screenrc" ".scala_history" ".sbclrc" ".rvmrc" ".rvm/" ".ruby-china.txt.swp" ".rstudio-desktop/" ".rsense" ".rnd" ".Rhistory" ".rediscli_history" ".Rapp.history" ".python_history" ".pvrconfig/" ".purple/" ".psql_history" ".pry_history" ".protoshares/" ".profile" ".presspass.yml" ".pow/" ".pip/" ".php_history" ".pgpass" ".pgadmin_histoqueries" ".perltidyrc" ".passenger/" ".p2/" ".org.eclipse.epp.usagedata.recording.userId" ".oracle_jre_usage/" ".oicq/" ".oh-my-zsh/" ".odbc.ini" ".nvm/" ".npm/" ".notes" ".node-gyp/" ".netrc" ".neocon/" ".neocomplcache/" ".mysql_history" ".muttrc" ".mutt.alias" ".mutt/" ".msmtprc" ".mplayer/" ".mono/" ".mongorc.js" ".module-starter/" ".Mobi2Epub/" ".mkshrc" ".minicpanrc" ".mime.types" ".meteorsession" ".meteor/" ".marboo/" ".mailcap" ".macports_old/" ".macports/" ".mackup.cfg" ".m2/" ".logs.swp" ".local/" ".lldb/" ".lispworks-config/" ".lighttable/" ".lesshst" ".keep_ti_14.1" ".jhbuildrc-fw-10.4-test" ".jhbuildrc-fw-10.4" ".jhbuildrc-custom" ".jhbuildrc-cfw-10.4u" ".jhbuildrc-cfw-10.4" ".jhbuildrc" ".jackdrc" ".iterm-list" ".irssi/" ".irbrc" ".irb_history" ".irb-history" ".io_history" ".idapro/" ".httpie/" ".htoprc" ".hgrc" ".hgignore_global" ".heroku/" ".gvimrc" ".guard_history" ".gstreamer-0.10/" ".gradle/" ".gnupg/" ".gitignore_global" ".gitconfig" ".getmail/" ".Genymobile/" ".gemrc" ".gem/" ".gdbinit" ".gdb_history" ".freetds.conf" ".freac/" ".fonts/" ".fontconfig/" ".esets/" ".erlang.cookie" ".emacs.d/" ".emacs" ".electrumlitecoin/" ".electrum/" ".editrc" ".eclipse/" ".dzil/" ".DS_Store" ".dropbox/" ".DownloadManager/" ".docker/" ".dirs" ".deltafy/" ".dbshell" ".curlrc" ".cups/" ".ctags" ".crazyfun/" ".cpanreporter/" ".cpanplus/" ".cpanm/" ".cpan/" ".cordova/" ".config/" ".CFUserTextEncoding" ".cache/" ".cabal/" ".bundler/" ".bundle/" ".bb.swp" ".bashrc" ".bash_profile.macports-saved_2012-05-22_at_17:50:52" ".bash_profile.macports-saved_2012-05-22_at_16:29:17" ".bash_profile" ".bash_history" ".babel.json" ".atom/" ".ardour2/" ".AndroidStudio1.5/" ".android/" ".amazon-product-api" ".alias" ".adobe/" ".#todo.org" ".#.alias" "#todo.org#" "#test.pl#" "../" "./")
+
+ ("/Users/cheungmc/.emacs.d/" (22441 63346 0 0) "README.md" "emacs" "bookmarks" "auto-save-list/" ".git/" ".emacs.swp" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
