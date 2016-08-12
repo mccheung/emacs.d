@@ -16,8 +16,8 @@
 (when (boundp 'package-pinned-packages)
   (setq package-pinned-packages
         '((cider                             . "melpa-stable")
-          (clojure-mode                      . "melpa-stable")
-          (clojure-mode-extra-font-locking   . "melpa-stable")
+          ;;(clojure-mode                      . "melpa-stable")
+          ;;(clojure-mode-extra-font-locking   . "melpa-stable")
           (company-cider                     . "melpa-stable")
           (malabar-mode                      . "melpa-stable"))))
 
@@ -61,7 +61,6 @@
     ido-vertical-mode yasnippet smart-tab anzu smartparens flx-ido projectile
     smooth-scrolling ace-jump-mode multiple-cursors easy-kill
     simple-call-tree 
-    ;;simple-call-tree+ 
     editorconfig ggtags bookmark+
     fill-column-indicator golden-ratio wc-mode eyebrowse vlf hydra
 
@@ -78,7 +77,7 @@
     idle-highlight-mode
 
     ;; LaTeX
-    auctex
+    ;;auctex
 
     ;; org-mode
     org htmlize gnuplot-mode gnuplot ox-reveal ox-gfm
@@ -96,7 +95,9 @@
     flycheck flycheck-tip flycheck-haskell
 
     ;; clojure
-    clojure-mode clojure-mode-extra-font-locking cider paredit paren-face
+    ;;clojure-mode 
+    ;;clojure-mode-extra-font-locking 
+    cider paredit paren-face
 
     ;; perl
     cperl-mode
@@ -108,13 +109,13 @@
     ruby-mode ruby-test-mode inf-ruby puppet-mode rbenv chruby
 
     ;; rust
-    rust-mode
+    ;;rust-mode
 
     ;; go
     go-mode
 
     ;; java
-    malabar-mode groovy-mode javap-mode emacs-eclim
+    ;;malabar-mode groovy-mode javap-mode emacs-eclim
 
     ;; javascript
     tern json-mode js2-mode
@@ -166,8 +167,8 @@
 ;;(defvar my/background 'light)
 (defvar my/background 'dark)
 
-(setq user-full-name "Lee Hinman"
-      user-mail-address "matthew.hinman@gmail.com")
+(setq user-full-name "Mc Cheung"
+      user-mail-address "mc.cheung@aol.com")
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -646,7 +647,7 @@ comint-replace-by-expanded-history-before-point."
       :config
       (progn
         (add-to-list 'tramp-remote-path "/usr/local/sbin")
-        (add-to-list 'tramp-remote-path "/opt/java/current/bin")
+        ;;(add-to-list 'tramp-remote-path "/opt/java/current/bin")
         (add-to-list 'tramp-remote-path "~/bin")))))
 
 ;; Standard location of personal dictionary
@@ -874,7 +875,7 @@ file to write to."
   (local-set-key "\C-c?" 'semantic-analyze-proto-impl-toggle))
 
 (add-hook 'c-mode-hook #'my/setup-semantic-mode)
-(add-hook 'java-mode-hook #'my/setup-semantic-mode)
+;;(add-hook 'java-mode-hook #'my/setup-semantic-mode)
 
 (setq vc-handled-backends '(SVN Git))
 
@@ -1030,69 +1031,70 @@ file to write to."
           (define-key python-mode-map (kbd "C-c C-l") 'jedi:get-in-function-call))))
     (add-hook 'python-mode-hook #'my/setup-jedi)))
 
-(defun java-line-up-only-constructor-or-dont (thing)
-  "If at a class constructor, line up with the paren, if not, use
- ++ indentation"
-  (interactive)
-  (save-excursion
-    (beginning-of-line)
-    (backward-up-list 1)
-    (backward-word 2)
-    ;; Now at either "new" or something else
-    (let* ((sym (semantic-ctxt-current-symbol)))
-      (if (eq '("new") sym)
-          '++
-        (c-lineup-arglist-intro-after-paren thing)))))
+;; (defun java-line-up-only-constructor-or-dont (thing)
+;;   "If at a class constructor, line up with the paren, if not, use
+;;  ++ indentation"
+;;   (interactive)
+;;   (save-excursion
+;;     (beginning-of-line)
+;;     (backward-up-list 1)
+;;     (backward-word 2)
+;;     ;; Now at either "new" or something else
+;;     (let* ((sym (semantic-ctxt-current-symbol)))
+;;       (if (eq '("new") sym)
+;;           '++
+;;         (c-lineup-arglist-intro-after-paren thing)))))
+;; 
+;; (defconst intellij-java-style
+;;   '((c-basic-offset . 4)
+;;     (c-comment-only-line-offset . (0 . 0))
+;;     ;; the following preserves Javadoc starter lines
+;;     (c-offsets-alist
+;;      .
+;;      ((inline-open . 0)
+;;       (topmost-intro-cont    . +)
+;;       (statement-block-intro . +)
+;;       (knr-argdecl-intro     . +)
+;;       (substatement-open     . +)
+;;       (substatement-label    . +)
+;;       (case-label            . +)
+;;       (label                 . +)
+;;       (statement-case-open   . +)
+;;       (statement-cont        . ++)
+;;       (arglist-intro         . 0)
+;;       ;; (arglist-intro         . c-lineup-arglist-intro-after-paren)
+;;       (arglist-cont-nonempty . ++)
+;;       ;; (arglist-cont-nonempty . java-line-up-only-constructor-or-dont)
+;;       (arglist-close         . --)
+;;       ;; (arglist-close         . c-lineup-arglist)
+;;       (inexpr-class          . 0)
+;;       (access-label          . 0)
+;;       (inher-intro           . ++)
+;;       (inher-cont            . ++)
+;;       ;; (brace-list-intro      . ++)
+;;       (brace-list-intro      . +)
+;;       (func-decl-cont        . ++))))
+;;   "Elasticsearch's Intellij Java Programming Style")
+;; 
+;; (c-add-style "intellij" intellij-java-style)
+;; (customize-set-variable 'c-default-style
+;;                         '((java-mode . "intellij")
+;;                           (awk-mode . "awk")
+;;                           (other . "gnu")))
 
-(defconst intellij-java-style
-  '((c-basic-offset . 4)
-    (c-comment-only-line-offset . (0 . 0))
-    ;; the following preserves Javadoc starter lines
-    (c-offsets-alist
-     .
-     ((inline-open . 0)
-      (topmost-intro-cont    . +)
-      (statement-block-intro . +)
-      (knr-argdecl-intro     . +)
-      (substatement-open     . +)
-      (substatement-label    . +)
-      (case-label            . +)
-      (label                 . +)
-      (statement-case-open   . +)
-      (statement-cont        . ++)
-      (arglist-intro         . 0)
-      ;; (arglist-intro         . c-lineup-arglist-intro-after-paren)
-      (arglist-cont-nonempty . ++)
-      ;; (arglist-cont-nonempty . java-line-up-only-constructor-or-dont)
-      (arglist-close         . --)
-      ;; (arglist-close         . c-lineup-arglist)
-      (inexpr-class          . 0)
-      (access-label          . 0)
-      (inher-intro           . ++)
-      (inher-cont            . ++)
-      ;; (brace-list-intro      . ++)
-      (brace-list-intro      . +)
-      (func-decl-cont        . ++))))
-  "Elasticsearch's Intellij Java Programming Style")
-
-(c-add-style "intellij" intellij-java-style)
-(customize-set-variable 'c-default-style
-                        '((java-mode . "intellij")
-                          (awk-mode . "awk")
-                          (other . "gnu")))
-
-(defun setup-java ()
-  (interactive)
-  (define-key java-mode-map (kbd "M-,") 'pop-tag-mark)
-  (c-set-style "intellij" t)
-  (subword-mode 1)
-  ;; Generic java stuff things
-  (setq-local fci-rule-column 99)
-  ;; remove the stupid company-eclim backend
-  (when (boundp 'company-backends)
-    (delete 'company-eclim company-backends)))
-
-(add-hook 'java-mode-hook 'setup-java)
+;; I've never write for java codes.
+;; (defun setup-java ()
+;;   (interactive)
+;;   (define-key java-mode-map (kbd "M-,") 'pop-tag-mark)
+;;   (c-set-style "intellij" t)
+;;   (subword-mode 1)
+;;   ;; Generic java stuff things
+;;   (setq-local fci-rule-column 99)
+;;   ;; remove the stupid company-eclim backend
+;;   (when (boundp 'company-backends)
+;;     (delete 'company-eclim company-backends)))
+;; 
+;; (add-hook 'java-mode-hook 'setup-java)
 
 (use-package emacs-eclim
   :init
@@ -1418,9 +1420,10 @@ file to write to."
           org-agenda-show-all-dates t
           ;; Agenda org-mode files
           org-agenda-files `(,(file-truename "~/org-notes/")
-                             ,(file-truename "~/org-notes/pantuo/Pantuo.org")
-                             ,(file-truename "~/org-notes/joirs/Joris.org")
-                             ,(file-truename "~/org-notes/book/")))
+                             ;;,(file-truename "~/org-notes/pantuo/Pantuo.org")
+                             ;;,(file-truename "~/org-notes/joirs/Joris.org")
+                             ;;,(file-truename "~/org-notes/book/")
+                             ))
 
     ;; Save all org-mode buffers every hour at :59
     (run-at-time "00:59" 3600 'org-save-all-org-buffers)
@@ -1535,12 +1538,12 @@ file to write to."
     (local-unset-key (kbd "M-S-<return>"))
 
     ;; org-babel stuff
-    (require 'ob-clojure)
+    ;;(require 'ob-clojure)
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((emacs-lisp . t)
        (elasticsearch . t)
-       (clojure . t)
+       ;;(clojure . t)
        (dot . t)
        (sh . t)
        (ruby . t)
@@ -1571,19 +1574,19 @@ file to write to."
                  '(:shebang . "#!/usr/bin/env python"))
 
     ;; Clojure-specific org-babel stuff
-    (defvar org-babel-default-header-args:clojure
-      '((:results . "silent")))
+    ;;(defvar org-babel-default-header-args:clojure
+    ;;  '((:results . "silent")))
 
-    (defun org-babel-execute:clojure (body params)
-      "Execute a block of Clojure code with Babel."
-      (let ((result-plist
-             (nrepl-send-string-sync
-              (org-babel-expand-body:clojure body params) nrepl-buffer-ns))
-            (result-type  (cdr (assoc :result-type params))))
-        (org-babel-script-escape
-         (cond ((eq result-type 'value) (plist-get result-plist :value))
-               ((eq result-type 'output) (plist-get result-plist :value))
-               (t (message "Unknown :results type!"))))))
+    ;;(defun org-babel-execute:clojure (body params)
+    ;;  "Execute a block of Clojure code with Babel."
+    ;;  (let ((result-plist
+    ;;         (nrepl-send-string-sync
+    ;;          (org-babel-expand-body:clojure body params) nrepl-buffer-ns))
+    ;;        (result-type  (cdr (assoc :result-type params))))
+    ;;    (org-babel-script-escape
+    ;;    (cond ((eq result-type 'value) (plist-get result-plist :value))
+    ;;           ((eq result-type 'output) (plist-get result-plist :value))
+    ;;           (t (message "Unknown :results type!"))))))
 
     ;; Function declarations
     (defun my/skip-non-archivable-tasks ()
@@ -1889,7 +1892,8 @@ file to write to."
                        "technomancy" "yazirian" "danielglauser")
             erc-pal-highlight-type 'nil
             erc-keywords '("dakrone" "dakrone_" "clj-http" "cheshire"
-                           "clojure-opennlp" "opennlp" "circuit breaker"
+                           ;;"clojure-opennlp" 
+                           "opennlp" "circuit breaker"
                            "simple_query_string")
             erc-ignore-list '()
             erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
@@ -2326,9 +2330,9 @@ passed in. Also supports ignoring the msg at the point."
   (progn
     (add-hook 'prog-mode-hook #'turn-on-smartparens-mode)
     ;; turn on showing the match for clojure and elisp
-    (add-hook 'clojure-mode-hook #'turn-on-show-smartparens-mode)
+    ;;(add-hook 'clojure-mode-hook #'turn-on-show-smartparens-mode)
     (add-hook 'emacs-lisp-mode-hook #'turn-on-show-smartparens-mode)
-    (add-hook 'java-mode-hook #'turn-on-show-smartparens-mode)
+    ;;(add-hook 'java-mode-hook #'turn-on-show-smartparens-mode)
     (add-hook 'c-mode-hook #'turn-on-show-smartparens-mode))
   :config
   (progn
@@ -2471,7 +2475,8 @@ passed in. Also supports ignoring the msg at the point."
   (progn
     (add-hook 'c-mode-common-hook
               (lambda ()
-                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+                ;;(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+                (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
                   (my/setup-semantic-mode)
                   (my/setup-helm-gtags) ;; helm-gtags
                   ;;(my/setup-ggtags) ;; regular gtags
@@ -2600,9 +2605,9 @@ passed in. Also supports ignoring the msg at the point."
   :init
   (progn
     ;; Only a few programming modes
-    (add-hook 'java-mode-hook 'git-gutter-mode)
+    ;;(add-hook 'java-mode-hook 'git-gutter-mode)
     (add-hook 'org-mode-hook 'git-gutter-mode)
-    (add-hook 'clojure-mode-hook 'git-gutter-mode)
+    ;;(add-hook 'clojure-mode-hook 'git-gutter-mode)
     (add-hook 'ruby-mode-hook 'git-gutter-mode)
     (add-hook 'python-mode-hook 'git-gutter-mode)))
 
@@ -3367,7 +3372,8 @@ With prefix P, create local abbrev. Otherwise it will be global."
       (idle-highlight-mode 1))
     (add-hook 'java-mode-hook #'turn-on-idle-highlight-mode)
     (add-hook 'emacs-lisp-mode-hook #'turn-on-idle-highlight-mode)
-    (add-hook 'clojure-lisp-mode-hook #'turn-on-idle-highlight-mode)))
+    ;;(add-hook 'clojure-lisp-mode-hook #'turn-on-idle-highlight-mode)
+    ))
 
 (global-set-key (kbd "C-x +") 'balance-windows-area)
 
