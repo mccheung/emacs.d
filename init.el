@@ -1,4 +1,3 @@
-
 ;; Dvorak nicety, regardless of loading settings
 (define-key key-translation-map "\C-t" "\C-x")
 
@@ -16,8 +15,6 @@
 (when (boundp 'package-pinned-packages)
   (setq package-pinned-packages
         '((cider                             . "melpa-stable")
-          ;;(clojure-mode                      . "melpa-stable")
-          ;;(clojure-mode-extra-font-locking   . "melpa-stable")
           (company-cider                     . "melpa-stable")
           (malabar-mode                      . "melpa-stable"))))
 
@@ -1951,7 +1948,7 @@ file to write to."
 
 (defun mail ()
   (interactive)
-  (add-to-list 'load-path "~/src/mu-0.9.11/mu4e")
+  (add-to-list 'load-path "~/src/mu4e")
   (nyan-mode 1) ;; nyan-mode for mail!
   (use-package mu4e
     :config
@@ -1965,9 +1962,9 @@ file to write to."
       (setq mu4e-mu-binary "/usr/local/bin/mu"
             ;;mu4e-sent-messages-behavior 'delete
             mu4e-user-mail-address-list
-            '("matthew.hinman@gmail.com" "lee@writequit.org" "lee@elastic.co")
+            '("alaobszhang@gmail.com");; "lee@writequit.org" "lee@elastic.co")
             ;; save attachments to the Downloads folder
-            mu4e-attachment-dir "~/Downloads"
+            mu4e-attachment-dir "/tmp/email-attachment-dir"
             ;; attempt to show images
             mu4e-view-show-images t
             mu4e-view-image-max-width 800
@@ -1987,9 +1984,9 @@ file to write to."
             mail-envelope-from 'header
             message-sendmail-envelope-from 'header
             ;; emacs email defaults
-            user-mail-address  "lee@writequit.org"
-            user-full-name     "Lee Hinman"
-            mail-host-address  "writequit.org"
+            user-mail-address  "alaboszhang@gmail.com"
+            user-full-name     "Alabos Zhang"
+            mail-host-address  "gmail.com"
             ;; no signature
             mu4e-compose-signature nil
             ;; mu4e defaults
@@ -2079,17 +2076,9 @@ passed in. Also supports ignoring the msg at the point."
             ;; value pairs of vars to set when the account is chosen
             kdl-mu4e-account-alist
             '(("gmail"
-               (user-mail-address   "matthew.hinman@gmail.com")
+               (user-mail-address   "alaboszhang@gmail.com")
                (msmtp-account       "gmail")
                (mu4e-sent-messages-behavior delete))
-              ("elastic"
-               (user-mail-address   "lee@elastic.co")
-               (msmtp-account       "elastic")
-               (mu4e-sent-messages-behavior delete))
-              ;; ("writequit"
-              ;;  (user-mail-address   "lee@writequit.org")
-              ;;  (msmtp-account       "writequit")
-              ;;  (mu4e-sent-messages-behavior sent))
               )
             ;; These are used when mu4e checks for new messages
             mu4e-my-email-addresses
@@ -2240,11 +2229,8 @@ passed in. Also supports ignoring the msg at the point."
               ("maildir:/elastic/build"      "Build failures"      ?B)
               ("date:today..now"             "Today's messages"     ?t)
               ("date:7d..now"                "Last 7 days"          ?W)
-              ;;("maildir:/writequit/INBOX"    "Writequit"            ?w)
               ("maildir:/elastic/INBOX"      "Elastic"              ?s)
               ("maildir:/gmail/INBOX"        "Gmail"                ?g)
-              ;; ("maildir:/writequit/INBOX OR maildir:/elastic/INBOX OR maildir:/gmail/INBOX"
-              ;;  "All Mail" ?a)
               ("maildir:/elastic/INBOX OR maildir:/gmail/INBOX" "All Mail" ?a)))
 
       ;; Skip the main mu4e screen and go right to unread
