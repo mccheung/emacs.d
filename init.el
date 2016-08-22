@@ -1303,6 +1303,9 @@ file to write to."
   (define-key org-mode-map (kbd "C-'")
     'eyebrowse-next-window-config)
   (define-key org-mode-map (kbd "C-c C-x C-f") 'org-refile)
+  (define-key org-mode-map (kbd "C-S-<left>") 'org-table-delete-column)
+  (define-key org-mode-map (kbd "C-S-<right>") 'org-table-insert-column)
+  (define-key org-mode-map (kbd "C-S-<down>") 'org-table-insert-row)
   (define-key org-agenda-mode-map (kbd "C-c C-x C-f") 'org-agenda-refile))
 
 (use-package org
