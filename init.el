@@ -3357,3 +3357,6 @@ buffer preview will still display."
                                           emacs-start-time))))
   (message "Loading settings...done (%.3fs)" elapsed))
 (put 'narrow-to-region 'disabled nil)
+
+;; Notes
+;; Meta x org-table-[delete|insert]-[row|column]
