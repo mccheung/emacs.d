@@ -1,0 +1,91 @@
+ls
+go build
+exit
+go build -o hello hello.go
+pwd
+ls
+./hello 
+go get github.com/beego/bee
+exit
+go build
+exit
+go build
+ls
+./golang_test 
+exit
+go build sorter
+ls
+go build sorter.go 
+ls
+exit
+gst
+git staus
+git status
+go build args.go 
+ls
+gst
+git status
+git add args.go 
+git commit -m 'args usage'
+git push
+exit
+git status
+git add .
+gst
+exit
+go build
+ls
+./sorter 
+ls
+./sorter -i unsorted.dat 
+exit
+go build
+exit
+go build
+fg
+exit
+go build
+exit
+go build
+exit
+go build
+exit
+ls
+go build
+exit
+go build
+ls
+exit
+go build
+exit
+go build
+pwd
+ls
+tree .
+cd ..
+tree .
+pwd
+echo GOPATH="/Users/cheungmc/src/golang/src/sorter/src"
+echo $GOPATH
+export GOPATH="/Users/cheungmc/src/golang/src/sorter/src"
+echo $GOPATH
+go build
+cd sorter/
+ls
+go build
+ls
+cd ..
+ls
+go build algorithms/bubblesort/
+go build algorithms/bubblesort/bubblesort
+echo $GOPATH
+exit
+exit
+ls
+clisp helloworld
+clisp helloworld.lisp 
+exit
+ls
+rm Amazon.org 
+rm Amazon.org 
+exit

@@ -89,7 +89,7 @@
     popwin dired+
 
     ;; haskell
-    haskell-mode ghc ghci-completion
+    ;;haskell-mode ghc ghci-completion
 
     ;; config
     ssh-config-mode
@@ -106,7 +106,7 @@
     cperl-mode
 
     ;; python
-    hy-mode jedi
+    ;;hy-mode jedi
 
     ;; ruby
     ruby-mode ruby-test-mode inf-ruby puppet-mode rbenv chruby
@@ -115,26 +115,26 @@
     ;;rust-mode
 
     ;; go
-    go-mode
+    ;;go-mode
 
     ;; java
     ;;malabar-mode groovy-mode javap-mode emacs-eclim
 
     ;; javascript
-    tern json-mode js2-mode
+    ;;tern json-mode js2-mode
 
     ;; emacs-lisp
     elisp-slime-nav paredit
 
     ;; racket
-    racket-mode
+    ;;racket-mode
 
     ;; markup language
-    markdown-mode markdown-mode+ yaml-mode zencoding-mode adoc-mode
+    ;;markdown-mode markdown-mode+ yaml-mode zencoding-mode adoc-mode
 
     ;; helm
-    helm helm-descbinds helm-ag helm-projectile helm-swoop
-    helm-gtags helm-ls-git helm-flycheck helm-flyspell helm-dash
+    ;;helm helm-descbinds helm-ag helm-projectile helm-swoop
+    ;;helm-gtags helm-ls-git helm-flycheck helm-flyspell helm-dash
 
     ;; git
     magit git-gutter git-timemachine magit-gh-pulls with-editor git-annex
@@ -3361,5 +3361,48 @@ buffer preview will still display."
   (message "Loading settings...done (%.3fs)" elapsed))
 (put 'narrow-to-region 'disabled nil)
 
-;; Notes
-;; Meta x org-table-[delete|insert]-[row|column]
+;;; cperl-mode is preferred to perl-mode                                        
+;;; "Brevity is the soul of wit" <foo at acm.org>                               
+(defalias 'perl-mode 'cperl-mode)
+
+(mapc
+     (lambda (pair)
+       (if (eq (cdr pair) 'perl-mode)
+           (setcdr pair 'cperl-mode)))
+     (append auto-mode-alist interpreter-mode-alist))
+
+
+
+(set-frame-parameter nil 'alpha 80)
+(defun change-alpha (alpha)
+  (interactive
+    (list (read-number "Input ratio: " 100)))
+  (unless (and (>= alpha 0) (<= alpha 100))
+    (error "Please input from 0 to 100"))
+  (set-frame-parameter nil 'alpha alpha))
+
+
+;; popup
+;; add some shotcuts in popup menu mode
+(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
+(define-key popup-menu-keymap (kbd "TAB") 'popup-next)
+(define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
+(define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
+(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
+
+(defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+  (when (featurep 'popup)
+    (popup-menu*
+     (mapcar
+      (lambda (choice)
+        (popup-make-item
+         (or (and display-fn (funcall display-fn choice))
+             choice)
+         :value choice))
+      choices)
+     :prompt prompt
+     ;; start isearch mode immediately
+     :isearch t
+     )))
+
+(setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
