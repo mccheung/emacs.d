@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/org-notes/" "~/codes/perl_code/haop2p/" "/usr/local/" "~/codes/perl_code/Amazon/" "~/src/golang/src/golang_test/" "~/src/golang/src/sorter/" "~/codes/Pantuo/")

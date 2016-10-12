@@ -419,6 +419,9 @@ When using Homebrew, install it using \"brew install trash\"."
 ;; delete-auto-save-files
 (setq delete-auto-save-files t)
 (setq make-backup-files nil)
+(setq backup-inhibited t )
+(setq auto-save-default nil )
+
 ;; (setq backup-directory-alist
 ;;      '(("." . "~/.emacs_backups")))
 
@@ -2885,10 +2888,12 @@ _q_: quit
   (setq scpaste-http-destination "http://p.writequit.org"
         scpaste-scp-destination "writequit:public_html/wq/paste/"))
 
-(use-package smex
-  :disabled t
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)))
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 
 (defun my/turn-on-volatile-highlights ()
   (interactive)
@@ -3406,3 +3411,10 @@ buffer preview will still display."
      )))
 
 (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
+
+
+(eval-after-load 'company-etags
+  '(progn
+     (add-to-list 'company-etags-modes 'web-mode)))
+
+(setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))

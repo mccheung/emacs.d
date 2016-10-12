@@ -1,1 +1,7 @@
 elpa/*
+recentf
+eshell/*
+projectile-bookmarks.eld
+savehist
+smex-items
+org-clock-save.el
