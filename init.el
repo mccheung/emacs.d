@@ -118,10 +118,11 @@
     ;;go-mode
 
     ;; java
-    ;;malabar-mode groovy-mode javap-mode emacs-eclim
+    ;;malabar-mode groovy-mode javap-mode 
+    emacs-eclim
 
     ;; javascript
-    ;;tern json-mode js2-mode
+    tern json-mode js2-mode
 
     ;; emacs-lisp
     elisp-slime-nav paredit
@@ -148,6 +149,9 @@
 
     ;; eww
     eww-lnum
+
+    ;; flashcards and spaced repetition for org-mode
+    ;; org-drill
     ))
 
 (defvar packages-refreshed? nil)
@@ -1440,7 +1444,7 @@ file to write to."
     ;; Org todo keywords
     (setq org-todo-keywords
           (quote
-           ((sequence "SOMEDAY(s)" "TODO(t)" "INPROGRESS(i)" "WAITING(w@/!)" "NEEDSREVIEW(n@/!)"
+           ((sequence "SOMEDAY(s/!)" "TODO(t)" "INPROGRESS(i)" "WAITING(w@/!)" "NEEDSREVIEW(n@/!)"
                       "|" "DONE(d)")
             (sequence "WAITING(w@/!)" "HOLD(h@/!)"
                       "|" "CANCELLED(c@/!)"))))
@@ -2357,7 +2361,7 @@ file to write to."
         (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)))
     (use-package helm-man)
     (use-package helm-misc)
-    (use-package helm-aliases)
+    ;;(use-package helm-aliases)
     (use-package helm-elisp)
     (use-package helm-imenu)
     (use-package helm-semantic)
@@ -3369,6 +3373,11 @@ buffer preview will still display."
 ;;; cperl-mode is preferred to perl-mode                                        
 ;;; "Brevity is the soul of wit" <foo at acm.org>                               
 (defalias 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 4
+          cperl-close-paren-offset -4
+          cperl-continued-statement-offset 4
+          cperl-indent-parens-as-block t
+          cperl-tab-always-indent t)
 
 (mapc
      (lambda (pair)
@@ -3418,3 +3427,9 @@ buffer preview will still display."
      (add-to-list 'company-etags-modes 'web-mode)))
 
 (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
+
+
+;; flashcards and spaced repetition for org-mode
+;; (require 'org-drill)
+
+
